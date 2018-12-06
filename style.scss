@@ -1,0 +1,86 @@
+@import 'partials/prefix-mixins';
+@import 'partials/layout';
+
+/* COLORS */
+
+@import 'partials/colors';
+
+/* NAVIGATION */
+
+@import 'partials/navigation';
+
+/* TYPOGRAPHY */
+
+@import 'partials/typography';
+
+/* BUTTONS */
+
+@import 'partials/buttons';
+
+@import 'partials/basic-style';
+
+/* PAGE TITLE */
+
+main > h1 {
+    color: $color-2;
+
+    @include MQ(L) {
+        /* title goes into the header on big devices */
+        color: $color-5;
+    }
+}
+
+/* BACKGROUND */
+
+body {
+    /* this is the page background */
+    background-color: $color-5;
+}
+
+.intro, .sidebar {
+    order: -1;
+}
+
+/* SMALL SCREENS */
+
+@include MQ(S) {
+
+    .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        footer {
+            text-align: center;
+        }
+    }
+
+    h1, h2, h3, h4, h5 {
+        text-align: center;
+    }
+}
+
+/* LARGE SCREENS */
+
+@include MQ(M) {
+
+    .page-wrapper {
+        display: grid;
+        grid-template: 1000px 1fr / 250px 1fr;
+        padding: 30px;
+        .intro {
+            grid-area: 1 / 1 / 1 / 1;
+            padding-right: 20px;
+        }
+        .sidebar {
+            grid-area: 2 / 1 / 2 / 1;
+            text-align: left;
+            padding-right: 20px;
+        }
+    }
+
+    h1, h2, h3, h4, h5 {
+        text-align: left;
+    }
+}
